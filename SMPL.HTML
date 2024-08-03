@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>TECH HUB</title>
+    <link rel="stylesheet" href="registrationstyles.css">
+    <script>
+        function validateForm() {
+            var userName = document.getElementsByName("nsmr")[0].value;
+            var password = document.getElementsByName("pass")[0].value;
+            var age = document.getElementsByName("age")[0].value;
+            var gender = document.getElementsByName("GENDER");
+            var branch = document.getElementsByName("mybranch")[0].value;
+            var language = document.getElementsByName("LANGUAGE");
+            var feedback = document.getElementsByName("mytext")[0].value;
+
+            if (userName == "" || password == "" || age == "" || !getCheckedRadio(gender) || branch == "" || !getCheckedCheckbox(language) || feedback == "") {
+                alert("Please fill all fields");
+                return false;
+            }
+            return true;
+        }
+
+        function getCheckedRadio(radioButtons) {
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function getCheckedCheckbox(checkboxes) {
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>PVM Tourisms</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./Home.html">Home</a></li>
+            <li><a href="./About.html">About</a></li>
+            <li><a href="./Contact.html">Contact</a></li>
+            <li><a href="./Registration.html">Registration</a></li>
+            <li><a href="./login.html">Login</a></li>
+        </ul>
+    </nav>
+    <center>
+        <div class="register">
+            <h1 align="center"> REGISTRATION FORM</h1>
+            <form action="login.html" onsubmit="return validateForm()"> 
+                <br>
+                USER NAME   : <input type="text" name="nsmr"> <br><br>
+                PASSWORD    : <input type="password" name="pass"> <br><br>
+                ENTER AGE   : <input type="text" name="age"> <br><br>
+                GENDER <br>
+                <input type="radio" name="GENDER" value="M">MALE <br>
+                <input type="radio" name="GENDER" value="F">FEMALE<br>
+                <input type="radio" name="GENDER" value="O">OTHER<br><br>
+                SELECT BRANCH 
+                <select name="mybranch">
+                    <option value=" "></option>
+                    <option value="CSE">CSE</option>
+                    <option value="AIML">AIML</option>
+                    <option value="DS">DS</option>
+                    <option value="ECE">ECE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="EEE">EEE</option>
+                </select><br><br>
+                SELECT LANGUAGE<br>
+                <input type="checkbox" name="LANGUAGE" value="E">ENGLISH <br>
+                <input type="checkbox" name="LANGUAGE" value="T">TELUGU<br>
+                <input type="checkbox" name="LANGUAGE" value="H">HINDI<br><br>
+                FEEDBACK <br>
+                <textarea name="mytext" cols="35" rows="5">
+                </textarea><br><br>
+                <center><input type="submit"></center> <br>
+            </form>
+        </div>
+    </center><br>
+    <footer>
+        <p>&copy; 2024 My Tourisms. ALL rights reserved.</p>
+    </footer>
+</body>
+</html>
